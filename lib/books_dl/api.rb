@@ -9,9 +9,9 @@ module BooksDL
     # API ENDPOINTS
     #
     # rubocop:disable Metrics/LineLength
-    CART_URL = 'https://db.books.com.tw/shopping/cart_list.php'.freeze
+    ACCOUNT_URL = 'https://myaccount.books.com.tw/myaccount/myaccount/index'.freeze
     LOGIN_HOST = 'https://cart.books.com.tw'.freeze
-    LOGIN_PAGE_URL = "https://cart.books.com.tw/member/login?url=#{CART_URL}".freeze
+    LOGIN_PAGE_URL = "https://cart.books.com.tw/member/login?url=#{ACCOUNT_URL}".freeze
     LOGIN_ENDPOINT_URL = 'https://cart.books.com.tw/member/login_do/'.freeze
 
     DEVICE_REG_URL = 'https://appapi-ebook.books.com.tw/V1.3/CMSAPIApp/DeviceReg'.freeze
@@ -110,7 +110,7 @@ module BooksDL
 
     def logged?
       @logged = begin
-        response = get(CART_URL)
+        response = get(ACCOUNT_URL)
 
         response.status == 200
       end
